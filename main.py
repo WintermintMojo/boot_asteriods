@@ -1,6 +1,6 @@
 import pygame
 from constants import *
-import player
+from player import Player
 
 def main():
     pygame.init()
@@ -8,7 +8,7 @@ def main():
     pygame.display.set_caption("Asteroids")
 
     gameClock = pygame.time.Clock()
-    playerShip = player.Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+    playerShip = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
     dt = 0
     running = True
     while running:
@@ -18,6 +18,7 @@ def main():
 
         screen.fill(BLACK)
         playerShip.draw(screen)
+        playerShip.update(dt)
         pygame.display.flip()
         dt = gameClock.tick(60)/1000
 
